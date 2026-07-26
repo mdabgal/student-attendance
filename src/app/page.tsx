@@ -13,17 +13,26 @@ import { students } from "@/data/students";
 import { Student, AttendanceStatus } from "@/types/student";
 
 export default function Home() {
+  // Student List
   const [studentList, setStudentList] = useState(students);
 
-  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  // Search
+  const [search, setSearch] = useState("");
 
+  // Class Filter
+  const [selectedClass, setSelectedClass] = useState("All");
+
+  // Modal
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Edit Button
   const handleEdit = (student: Student) => {
     setSelectedStudent(student);
     setIsModalOpen(true);
   };
 
+  // Save Attendance
   const handleSave = (status: AttendanceStatus) => {
     if (!selectedStudent) return;
 
@@ -39,6 +48,34 @@ export default function Home() {
     setSelectedStudent(null);
   };
 
+  // Search + Filter
+  const filteredStudents = studentList.filter((student) => {
+    const matchesSearch = student.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesClass =
+      selectedClass === "All" ||
+      student.class === selectedClass;
+
+    return matchesSearch && matchesClass;
+  });
+
+  // Summary
+  const totalStudents = studentList.length;
+
+  const presentStudents = studentList.filter(
+    (student) => student.status === "present"
+  ).length;
+
+  const absentStudents = studentList.filter(
+    (student) => student.status === "absent"
+  ).length;
+
+  const leaveStudents = studentList.filter(
+    (student) => student.status === "leave"
+  ).length;
+
   return (
     <main className="min-h-screen bg-slate-50">
       <Navbar />
@@ -46,12 +83,18 @@ export default function Home() {
       <div className="mx-auto max-w-7xl space-y-8 px-5 py-8">
         <Hero />
 
-        <SearchFilter />
-
-        <SummaryCards />
+        <SearchFilter
+          search={search}
+          setSearch={setSearch}
+          selectedClass={selectedClass}
+          setSelectedClass={setSelectedClass}
+        />
+<SummaryCards
+  students={studentList}
+/>
 
         <StudentTable
-          students={studentList}
+          students={filteredStudents}
           onEdit={handleEdit}
         />
 
