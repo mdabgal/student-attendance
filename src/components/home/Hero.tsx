@@ -1,10 +1,39 @@
 import { ArrowRight, GraduationCap } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  totalStudents: number;
+  totalClasses: number;
+  attendanceRate: number;
+}
+
+export default function Hero({
+  totalStudents,
+  totalClasses,
+  attendanceRate,
+}: HeroProps) {
+  const stats = [
+    {
+      title: "Students",
+      value: `${totalStudents}+`,
+    },
+    {
+      title: "Attendance",
+      value: `${attendanceRate}%`,
+    },
+    {
+      title: "Classes",
+      value: totalClasses,
+    },
+    {
+      title: "Status",
+      value: "Live",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 via-indigo-700 to-cyan-600 px-6 py-12 text-white shadow-xl md:px-12 md:py-16">
    
-      <div className="absolute -top-20 -right-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
 
       <div className="relative flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
@@ -17,7 +46,9 @@ export default function Hero() {
 
           <h1 className="text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
             Manage Student Attendance
-            <span className="block text-cyan-200">Faster & Smarter</span>
+            <span className="block text-cyan-200">
+              Faster & Smarter
+            </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-blue-100 md:text-lg">
@@ -37,27 +68,22 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right */}
+      
         <div className="grid w-full max-w-sm grid-cols-2 gap-4">
-          <div className="rounded-2xl bg-white/15 p-5 backdrop-blur">
-            <h3 className="text-3xl font-bold">15+</h3>
-            <p className="mt-2 text-blue-100">Students</p>
-          </div>
+          {stats.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl bg-white/15 p-5 backdrop-blur transition hover:bg-white/20"
+            >
+              <h3 className="text-3xl font-bold">
+                {item.value}
+              </h3>
 
-          <div className="rounded-2xl bg-white/15 p-5 backdrop-blur">
-            <h3 className="text-3xl font-bold">95%</h3>
-            <p className="mt-2 text-blue-100">Attendance</p>
-          </div>
-
-          <div className="rounded-2xl bg-white/15 p-5 backdrop-blur">
-            <h3 className="text-3xl font-bold">3</h3>
-            <p className="mt-2 text-blue-100">Classes</p>
-          </div>
-
-          <div className="rounded-2xl bg-white/15 p-5 backdrop-blur">
-            <h3 className="text-3xl font-bold">A+</h3>
-            <p className="mt-2 text-blue-100">Performance</p>
-          </div>
+              <p className="mt-2 text-blue-100">
+                {item.title}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
