@@ -133,7 +133,7 @@ export default function Footer() {
                 className="text-blue-400"
               />
 
-              support@studentattendance.com
+              jannati2917@gmail.com
 
             </p>
 
@@ -146,11 +146,9 @@ export default function Footer() {
                 className="text-blue-400"
               />
 
-              +880 1234-567890
+              +880 1754252246
 
             </p>
-
-
 
 
             <p className="flex items-center gap-3">
@@ -164,22 +162,12 @@ export default function Footer() {
 
             </p>
 
-
-
           </div>
-
 
         </div>
 
-
-
       </div>
 
-
-
-
-
-    
 
       <div className="border-t border-slate-800">
 

@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
-        {/* Logo */}
+       
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md">
             <GraduationCap size={22} />
@@ -26,7 +26,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Menu */}
+      
         <nav className="hidden items-center gap-6 md:flex">
           <Link
             href="/"
@@ -37,7 +37,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
+       
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 md:hidden"
@@ -46,7 +46,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+    
       {isOpen && (
         <div className="border-t border-slate-200 bg-white md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-4">

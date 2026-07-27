@@ -30,7 +30,7 @@ export default function AttendanceModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl">
-        {/* Header */}
+       
         <div className="flex items-center justify-between border-b px-6 py-4">
           <div>
             <h2 className="text-xl font-bold text-slate-900">
@@ -49,7 +49,7 @@ export default function AttendanceModal({
           </button>
         </div>
 
-        {/* Body */}
+     
         <div className="space-y-5 p-6">
           <div className="rounded-xl bg-slate-50 p-4">
             <h3 className="font-semibold text-slate-900">{student.name}</h3>
@@ -88,7 +88,7 @@ export default function AttendanceModal({
           </div>
         </div>
 
-        {/* Footer */}
+   
         <div className="flex justify-end gap-3 border-t px-6 py-4">
           <button
             onClick={onClose}

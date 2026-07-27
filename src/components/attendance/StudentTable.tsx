@@ -35,9 +35,7 @@ export default function StudentTable({
     <section>
 
 
-      {/* =====================
-          Desktop Table View
-      ====================== */}
+    
 
       <div className="hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:block">
 
@@ -147,20 +145,19 @@ export default function StudentTable({
 
 
 
-      {/* =====================
-          Mobile Card View
-      ====================== */}
+   
 
       <div className="grid gap-4 md:hidden">
 
         {students.map((student)=>(
 
           <div
-            key={student.id}
-            className="
-            rounded-2xl
+          key={student.id}
+          
+          className="
+          rounded-2xl
             border
-            border-slate-200
+           border-slate-200
             bg-white
             p-5
             shadow-sm

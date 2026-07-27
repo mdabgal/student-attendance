@@ -7,8 +7,11 @@ export default function StudentSkeleton() {
           <div
             key={index}
             className="
+          
             animate-pulse
+           
             rounded-2xl
+          
             border
             border-slate-200
             bg-white
@@ -19,7 +22,7 @@ export default function StudentSkeleton() {
 
             <div className="flex items-center justify-between">
 
-              <div className="h-5 w-32 rounded bg-slate-200"></div>
+          <div className="h-5 w-32 rounded bg-slate-200"></div>
 
               <div className="h-6 w-20 rounded-full bg-slate-200"></div>
 
@@ -30,7 +33,7 @@ export default function StudentSkeleton() {
 
               <div className="h-4 w-40 rounded bg-slate-200"></div>
 
-              <div className="h-4 w-36 rounded bg-slate-200"></div>
+            <div className="h-4 w-36 rounded bg-slate-200"></div>
 
               <div className="h-4 w-28 rounded bg-slate-200"></div>
 
